@@ -12,6 +12,11 @@
 2.6. [Indentação](#indentação)  
 2.7. [Não utilize números mágicos](#não-utilize-números-mágicos)  
 2.8. [Inclua guards](#inclua-guards)  
+2.9. [Sempre utilize chaves](#sempre-utilize-chaves)  
+2.10. [Mantenha as linhas com um comprimento razoável](#mantenha-as-linhas-com-um-comprimento-razoável)  
+2.11. [Utilize aspas duplas para incluir arquivos locais](#utilize-aspas-duplas-para-incluir-arquivos-locais)  
+2.12. [Utilize constantes sempre que possível](#utilize-constantes-sempre-que-possível)  
+2.13. [Passe ou retorne tipos simples por valor](#passe-ou-retorne-tipos-simples-por-valor)  
 3. [Dicas](#dicas)  
 3.1. [Lembre-se de deletar os ponteiros](#lembre-se-de-deletar-os-ponteiros)  
 3.2. [Utilize ponteiros inteligentes](#utilize-ponteiros-inteligentes)  
@@ -268,6 +273,115 @@ for (int i = 0; i < 15; ++i)
     ++sum;
     std::cout << i << std::endl;
 ```
+
+## Mantenha as linhas com um comprimento razoável
+
+Mantenha as linhas com um comprimento razoável. Caso a linha seja muito extensa, tenha muitos caracteres, vale a pena quebrá-la em múltiplas linhas, por exemplo:
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+if( (x == 1 && y == 2 && myFunction() == true) || (x == 0 && y == 0 && myFunction() == false) )
+{
+
+}
+```
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+if( (x == 1 && y == 2 && myFunction() == true) ||
+    (x == 0 && y == 0 && myFunction() == false) )
+{
+
+}
+```
+
+## Utilize aspas duplas para incluir arquivos locais
+
+Utilize aspas duplas (`""`) para incluir arquivos locais.
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+#include <string>
+#include <MyHeader.hpp>
+```
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+#include <string>
+#include "MyHeader.hpp"
+```
+
+## Utilize constantes sempre que possível
+
+Utilize `const` sempre que possível. `const` avisa ao compilador que a variável é imutável. Isto auxilia o compilador a otimizar o código e ajuda o programador a saber se uma função tem "efeitos colaterais". Ainda, a utilização de `const &` previne o compilador de copiar dados desnecessariamente.
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+class MyClass
+{
+public:
+    void do_something(int i);
+    void do_something(std::string str);
+};
+```
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+class MyClass
+{
+public:
+    void do_something(const int i);
+    void do_something(const std::string &str);
+};
+```
+
+## Passe ou retorne tipos simples por valor
+
+Não passe ou retorne tipos simples por referência, mas sim por valor:
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+class MyClass
+{
+public:
+    explicit MyClass(const int& t_int_value)
+        : m_int_value(t_int_value)
+    {
+    }
+
+    const int& get_int_value() const
+    {
+        return m_int_value;
+    }
+
+private:
+    int m_int_value;
+}
+```
+
+Se o valor não será alterado é possível utilizar `const`.
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+class MyClass
+{
+public:
+    explicit MyClass(const int t_int_value)
+        : m_int_value(t_int_value)
+    {
+    }
+
+    int get_int_value() const
+    {
+        return m_int_value;
+    }
+
+private:
+    int m_int_value;
+}
+```
+
+Utilize a passagem de parâmetro por referência para objetos, vetores, etc.
 
 # Dicas
 

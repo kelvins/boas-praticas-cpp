@@ -11,6 +11,7 @@
 2.5. [Comentários](#comentários)  
 2.6. [Indentação](#indentação)  
 2.7. [Não utilize números mágicos](#não-utilize-números-mágicos)  
+2.8. [Inclua guards](#inclua-guards)  
 3. [Dicas](#dicas)  
 3.1. [Lembre-se de deletar os ponteiros](#lembre-se-de-deletar-os-ponteiros)  
 3.2. [Utilize ponteiros inteligentes](#utilize-ponteiros-inteligentes)  
@@ -213,6 +214,61 @@ double calc( double value )
 }
 ```
 
+## Inclua guards
+
+Arquivos de cabeçalho (header files) devem utilizar guards para evitar problemas com a inclusão do mesmo arquivo múltiplas vezes e previnir conflitos com cabeçalhos de outros projetos:
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+#ifndef MYPROJECT_MYCLASS_HPP
+#define MYPROJECT_MYCLASS_HPP
+
+class MyClass
+{
+public:
+    void myFunc();
+};
+
+#endif
+```
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+class MyClass
+{
+public:
+    void myFunc();
+};
+```
+
+## Sempre utilize chaves
+
+Sempre utilize chaves mesmo quando existe apenas uma linha de código dentro de um bloco. A não utilização de chaves pode causar erros semânticos no código, por exemplo:
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+int sum = 0;
+for (int i = 0; i < 15; ++i)
+{
+    ++sum;
+    std::cout << i << std::endl;
+}
+```
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+for (int i = 0; i < 15; ++i)
+    std::cout << i << std::endl;
+```
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Erro semântico
+```c++
+int sum = 0;
+for (int i = 0; i < 15; ++i)
+    ++sum;
+    std::cout << i << std::endl;
+```
+
 # Dicas
 
 ## Lembre-se de deletar os ponteiros
@@ -224,7 +280,7 @@ Lembre-se de sempre deletar os ponteiros para liberar a memória alocada. Além 
 double myFunction(double value1, double value2)
 {
     Calculator *calc = new Calculator();
-    
+
     double result = calc->sum(value1, value2);
 
     delete calc;
@@ -267,7 +323,7 @@ void ponteiroInteligente()
 void ponteiroTradicional()
 {
     // Utilizando ponteiro tradicional (ponteiro bruto)
-    Song* pSong = new Song(L"Nothing on You", L"Bruno Mars"); 
+    Song* pSong = new Song(L"Nothing on You", L"Bruno Mars");
 
     // Utilize pSong...
     // Exemplo: pSong->duration();
@@ -290,7 +346,7 @@ bool equal( int value1, int value2 )
     /*
     if( value1 < value2 || value1 > value2 )
     {
-        return false; 
+        return false;
     }
     else
     {

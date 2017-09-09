@@ -17,13 +17,16 @@
 2.11. [Utilize aspas duplas para incluir arquivos locais](#utilize-aspas-duplas-para-incluir-arquivos-locais)  
 2.12. [Utilize constantes sempre que possível](#utilize-constantes-sempre-que-possível)  
 2.13. [Passe ou retorne tipos simples por valor](#passe-ou-retorne-tipos-simples-por-valor)  
+2.14. [Utilize double em vez de float](#utilize-double-em-vez-de-float)  
 3. [Dicas](#dicas)  
 3.1. [Lembre-se de deletar os ponteiros](#lembre-se-de-deletar-os-ponteiros)  
 3.2. [Utilize ponteiros inteligentes](#utilize-ponteiros-inteligentes)  
 3.3. [Códigos não utilizados devem ser deletados](#códigos-não-utilizados-devem-ser-deletados)  
 3.4. [Evite métodos com muitos parâmetros](#evite-métodos-com-muitos-parâmetros)  
 3.5. [Utilize espaços em branco para melhor visualização](#utilize-espaços-em-branco-para-melhor-visualização)  
-3.6. [Pare e dê uma volta](#pare-e-dê-uma-volta)  
+3.6. [Limite o escopo das variáveis](#limite-o-escopo-das-variáveis)  
+3.7. [Prefira `++i` em vez de `i++`](#refira-`++i`-em-vez-de-`i++`)  
+3.8. [Pare e dê uma volta](#pare-e-dê-uma-volta)  
 4. [Referências](#referências)  
 
 # Introdução
@@ -383,6 +386,12 @@ private:
 
 Utilize a passagem de parâmetro por referência para objetos, vetores, etc.
 
+## Utilize double em vez de float
+
+A utilização de `float` irá reduzir a precisão. Porém, em operações com vetores `float` pode ser mais rápido que `double` se você puder sacrificar a precisão.
+
+Contudo, `double` é a opção padrão recomendada já que este é o tipo padrão para valores de ponto flutuante em C++.
+
 # Dicas
 
 ## Lembre-se de deletar os ponteiros
@@ -515,6 +524,52 @@ if((majorVersion==2 && minorVersion==5) || majorVersion>=3)
 ```c++
 if((majorVersion==2&&minorVersion==5)||majorVersion>=3)
 ```
+
+## Limite o escopo das variáveis
+
+Sempre que possível limite o escopo das variáveis:
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+for (int i = 0; i < 15; ++i)
+{
+    MyObject obj(i);
+    // Faça algo com obj
+}
+```
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+MyObject obj; // inicialização de objeto sem sentido
+for (int i = 0; i < 15; ++i)
+{
+    obj = MyObject(i); // operação de atribuição desnecessária
+    // Faça algo com obj
+}
+// obj ainda está ocupando memória sem motivo
+```
+
+## Prefira `++i` em vez de `i++`
+
+Ainda que `i++` seja semanticamente correto, o pré-incremento (`++i`) é mais rápido que pós-incremento (`i++`), uma vez que não requer uma cópia do objeto.
+
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+for (int i = 0; i < 15; i++)
+{
+    std::cout << i << '\n';
+}
+```
+
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+for (int i = 0; i < 15; ++i)
+{
+    std::cout << i << '\n';
+}
+```
+
+Mesmo que os compiladores mais modernos otimizem esses dois laços para o mesmo código assembly, a utilização de `++i` ainda é uma boa prática.
 
 ## Pare e dê uma volta
 

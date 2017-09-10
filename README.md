@@ -35,8 +35,6 @@ Este documento apresenta um guia rápido de boas práticas em **C++** e é volta
 
 As informações apresentadas neste guia foram obtidas de alguns materiais (livros e blogs), citados nas referências, e de conhecimento prático pessoal.
 
-Este guia possui opiniões pessoais e não deve ser utilizado como um guia definitivo de boas práticas, porém o mesmo pode ser utilizado para padronizar o estilo dos códigos em C++, bem como apresentar alguns conceitos básicos da linguagens.
-
 Achei importante criar este material em PT_BR pois a maioria dos materiais encontrados estão escritos na língua do Tio Sam, o que dificulta um pouco o entendimento, principalmente para os iniciantes. Além disso, tentei resumir de forma bem prática e direta alguns conceitos básicos de forma que este material possa ser utilizado como um guia de consulta rápida.
 
 Caso você não concorde com algo ou tenha alguma informação a acrescentar, sinta-se à vontade para criar issues ou enviar pull requests.
@@ -394,6 +392,8 @@ Contudo, `double` é a opção padrão recomendada já que este é o tipo padrã
 
 # Dicas
 
+Nesta seção você irá encontrar algumas dicas importantes que podem ser úteis durante o desenvolvimento.
+
 ## Lembre-se de deletar os ponteiros
 
 Lembre-se de sempre deletar os ponteiros para liberar a memória alocada. Além de deletar o ponteiro, eu costumo definir ele como `NULL` para evitar [comportamento indefinido][3] (isso faz mais sentido quando o ponteiro está no escopo da classe e não da função).
@@ -506,9 +506,20 @@ Assim o código fica mais limpo e mais fácil de compreender.
 
 Sempre que possível evite a utilização de muitos parâmetros em métodos. Métodos com muitos parâmetros são geralmente difíceis de compreender. Se necessário refatore o método.
 
-## Utilize espaços em branco para melhor a visualização
+![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+```c++
+void showUserInformation(string firstName, string lastName, string gender, int age, double height, double weight);
+```
 
-Utilize espaços em branco para melhor a visualização, por exemplo:
+![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+```c++
+// Onde 'User' é um objeto/estrutura de dados
+void showUserInformation(User &user);
+```
+
+## Utilize espaços em branco para melhor visualização
+
+Utilize espaços em branco para melhor visualização, por exemplo:
 
 ![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
 ```c++

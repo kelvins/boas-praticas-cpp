@@ -226,8 +226,8 @@ Arquivos de cabeçalho (header files) devem utilizar guards para evitar problema
 
 ![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
 ```c++
-#ifndef MYPROJECT_MYCLASS_HPP
-#define MYPROJECT_MYCLASS_HPP
+#ifndef MYCLASS_H
+#define MYCLASS_H
 
 class MyClass
 {

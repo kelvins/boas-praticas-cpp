@@ -41,7 +41,7 @@ Caso você não concorde com algo ou tenha alguma informação a acrescentar, si
 
 # Estilo de Código
 
-Todo projeto possui seu estilo de código, alguns com algumas práticas mais avançadas e outros praticamente sem nenhum padrão. Porém, o estilo de código tem um grande impacto na legibilidade do mesmo. Sendo assim, é importante investir algumas horas do seu tempo para estudar um pouco sobre isso, além de realizar revisões de código sempre que possível, garantindo um código mais fácil de manter e evoluir.
+Todo projeto possui seu estilo de código, alguns com algumas práticas mais avançadas e outros praticamente sem nenhum padrão. Porém, o estilo de um código tem grande impacto em sua respectiva legibilidade. Sendo assim, é importante investir algumas horas do seu tempo para estudar um pouco sobre isso, além de realizar revisões de código sempre que possível, garantindo um código mais fácil de manter e evoluir.
 
 ## Nomes de Variáveis
 

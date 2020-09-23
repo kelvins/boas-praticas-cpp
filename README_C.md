@@ -70,15 +70,17 @@ Entretanto, quando trabalhando em um projeto conjunto, é interessante usar semp
 
 ## Nomes de Constantes
 
-Constantes devem ser declaradas sempre em letras maiúsculas (caixa alta):
+Constantes devem ser declaradas sempre em letras maiúsculas (caixa alta). Isso também vale para MACROS ("defines").
 
 ![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
 ```c
+#define MAX 500
 const double PI = 3.14159;
 ```
 
 ![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
 ```c
+#define max 500
 const double pi = 3.14159;
 ```
 

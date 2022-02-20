@@ -47,14 +47,14 @@ Todo projeto possui seu estilo de código, alguns com algumas práticas mais ava
 
 Variáveis devem sempre começar com letra minúscula, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 string myWeirdVariable;
 // ou
 string my_weird_variable;
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 string MyWeird_Variable2;
 // ou
@@ -72,12 +72,12 @@ Eu pessoalmente prefiro utilizar o padrão **CamelCase** e vejo muita gente util
 
 Constantes devem ser declaradas sempre em letras maiúsculas (caixa alta):
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 const double PI = 3.14159;
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 const double pi = 3.14159;
 ```
@@ -86,17 +86,17 @@ const double pi = 3.14159;
 
 Nomes de funções devem começar com a primeira letra minúscula, assim como as variáveis:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 void myFunction();
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 void MyFunction();
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Pior ainda
+:x: Pior ainda
 ```c++
 void My_Function();
 ```
@@ -105,12 +105,12 @@ void My_Function();
 
 Nomes de classes devem começar com a primeira letra maiúscula e seguir o padrão CamelCase (preferencialmente):
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 class LinkedList
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 class linkedList
 ```
@@ -134,7 +134,7 @@ bool equal( int value1, int value2 )
 
 Caso seja necessário comentar um bloco de código para debugar ou por algum outro motivo, você não terá problemas, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 bool equal( int value1, int value2 )
 {
@@ -152,7 +152,7 @@ bool equal( int value1, int value2 )
 
 Caso contrário, não seria possível comentar o bloco de código inteiro, por exemplo:
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 bool equal( int value1, int value2 )
 {
@@ -180,7 +180,7 @@ O mais comum é a indentação ou recuo de código utilizando 4 espaços, 2 espa
 
 Não utilize números 'mágicos', por exemplo:
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 double calc( double value )
 {
@@ -190,7 +190,7 @@ double calc( double value )
 
 Nestes casos opte por definir uma constante, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 const double PI = 3.14159;
 
@@ -202,7 +202,7 @@ double calc( double value )
 
 Mas utilize, SIM, números, quando isso fizer sentido, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 double calc( double value )
 {
@@ -210,7 +210,7 @@ double calc( double value )
 }
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 #define TWO 2
 
@@ -224,7 +224,7 @@ double calc( double value )
 
 Arquivos de cabeçalho (header files) devem utilizar guards para evitar problemas com a inclusão do mesmo arquivo múltiplas vezes e previnir conflitos com cabeçalhos de outros projetos:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 #ifndef MYCLASS_H
 #define MYCLASS_H
@@ -238,7 +238,7 @@ public:
 #endif
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 class MyClass
 {
@@ -251,7 +251,7 @@ public:
 
 Sempre utilize chaves mesmo quando existe apenas uma linha de código dentro de um bloco. A não utilização de chaves pode causar erros semânticos no código, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 int sum = 0;
 for (int i = 0; i < 15; ++i)
@@ -261,13 +261,13 @@ for (int i = 0; i < 15; ++i)
 }
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 for (int i = 0; i < 15; ++i)
     std::cout << i << std::endl;
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Erro semântico
+:x: Erro semântico
 ```c++
 int sum = 0;
 for (int i = 0; i < 15; ++i)
@@ -279,7 +279,7 @@ for (int i = 0; i < 15; ++i)
 
 Mantenha as linhas com um comprimento razoável. Caso a linha seja muito extensa, tenha muitos caracteres, vale a pena quebrá-la em múltiplas linhas, por exemplo:
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 if( (x == 1 && y == 2 && myFunction() == true) || (x == 0 && y == 0 && myFunction() == false) )
 {
@@ -287,7 +287,7 @@ if( (x == 1 && y == 2 && myFunction() == true) || (x == 0 && y == 0 && myFunctio
 }
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 if( (x == 1 && y == 2 && myFunction() == true) ||
     (x == 0 && y == 0 && myFunction() == false) )
@@ -300,13 +300,13 @@ if( (x == 1 && y == 2 && myFunction() == true) ||
 
 Utilize aspas duplas (`""`) para incluir arquivos locais.
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 #include <string>
 #include <MyHeader.hpp>
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 #include <string>
 #include "MyHeader.hpp"
@@ -316,7 +316,7 @@ Utilize aspas duplas (`""`) para incluir arquivos locais.
 
 Utilize `const` sempre que possível. `const` avisa ao compilador que a variável é imutável. Isto auxilia o compilador a otimizar o código e ajuda o programador a saber se uma função tem "efeitos colaterais". Ainda, a utilização de `const &` previne o compilador de copiar dados desnecessariamente.
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 class MyClass
 {
@@ -326,7 +326,7 @@ public:
 };
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 class MyClass
 {
@@ -340,7 +340,7 @@ public:
 
 Não passe ou retorne tipos simples por referência, mas sim por valor:
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 class MyClass
 {
@@ -362,7 +362,7 @@ private:
 
 Se o valor não será alterado é possível utilizar `const`.
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 class MyClass
 {
@@ -398,7 +398,7 @@ Nesta seção você irá encontrar algumas dicas importantes que podem ser útei
 
 Lembre-se de sempre deletar os ponteiros para liberar a memória alocada. Além de deletar o ponteiro, eu costumo definir ele como `NULL` para evitar [comportamento indefinido][3] (isso faz mais sentido quando o ponteiro está no escopo da classe e não da função).
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 double myFunction(double value1, double value2)
 {
@@ -413,7 +413,7 @@ double myFunction(double value1, double value2)
 }
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 double myFunction(double value1, double value2)
 {
@@ -428,7 +428,7 @@ Contudo, opte por utilizar [ponteiros inteligentes][4] (próximo tópico) sempre
 
 Sempre que possível utilize ponteiros inteligentes (smart pointers) ao invés de utilizar os ponteiros tradicionais (raw pointers). O uso de ponteiros inteligentes pode evitar diversos problemas, dentre eles o [vazamento de memória][5] (memory leak).
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 void ponteiroInteligente()
 {
@@ -441,7 +441,7 @@ void ponteiroInteligente()
 }
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 void ponteiroTradicional()
 {
@@ -462,7 +462,7 @@ Exemplo modificado de: https://msdn.microsoft.com/pt-br/library/hh279674.aspx
 
 Códigos não mais utilizados (comentados) devem ser deletados, por exemplo:
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 bool equal( int value1, int value2 )
 {
@@ -486,7 +486,7 @@ bool equal( int value1, int value2 )
 }
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 bool equal( int value1, int value2 )
 {
@@ -506,12 +506,12 @@ Assim o código fica mais limpo e mais fácil de compreender.
 
 Sempre que possível evite a utilização de muitos parâmetros em métodos. Métodos com muitos parâmetros são geralmente difíceis de compreender. Se necessário refatore o método.
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 void showUserInformation(string firstName, string lastName, string gender, int age, double height, double weight);
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 // Onde 'User' é um objeto/estrutura de dados
 void showUserInformation(User &user);
@@ -521,17 +521,17 @@ void showUserInformation(User &user);
 
 Utilize espaços em branco para melhor visualização, por exemplo:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 if( (majorVersion == 2 && minorVersion == 5) || majorVersion >= 3 )
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 if((majorVersion==2 && minorVersion==5) || majorVersion>=3)
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Pior ainda
+:x: Pior ainda
 ```c++
 if((majorVersion==2&&minorVersion==5)||majorVersion>=3)
 ```
@@ -540,7 +540,7 @@ if((majorVersion==2&&minorVersion==5)||majorVersion>=3)
 
 Sempre que possível limite o escopo das variáveis:
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 for (int i = 0; i < 15; ++i)
 {
@@ -549,7 +549,7 @@ for (int i = 0; i < 15; ++i)
 }
 ```
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 MyObject obj; // inicialização de objeto sem sentido
 for (int i = 0; i < 15; ++i)
@@ -564,7 +564,7 @@ for (int i = 0; i < 15; ++i)
 
 Ainda que `i++` seja semanticamente correto, o pré-incremento (`++i`) é mais rápido que pós-incremento (`i++`), uma vez que não requer uma cópia do objeto.
 
-![#f03c15](https://placehold.it/12/f03c15/000000?text=+) Ruim
+:x: Ruim
 ```c++
 for (int i = 0; i < 15; i++)
 {
@@ -572,7 +572,7 @@ for (int i = 0; i < 15; i++)
 }
 ```
 
-![#c5f015](https://placehold.it/12/c5f015/000000?text=+) Bom
+:heavy_check_mark: Bom
 ```c++
 for (int i = 0; i < 15; ++i)
 {
